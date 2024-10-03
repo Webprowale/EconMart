@@ -269,7 +269,7 @@
                                             User Progress
                                         </h5>
                                         <p class="mb-2 fw-bold">
-                                            $72,540
+                                          <?= esc($userCount) ?>
                                         </p>
                                         <div class="mb-0">
                                             <span class="badger me-2">
@@ -286,10 +286,10 @@
                                 <div class="card  border-0  text-bg-warning bg-opacity-25">
                                     <div class="card-body py-4 text-dark">
                                         <h5 class="mb-2 fw-bold">
-                                            Product Progress
+                                            Product Uploaded
                                         </h5>
                                         <p class="mb-2 fw-bold">
-                                            $72,540
+                                        <?= esc($productCount) ?>
                                         </p>
                                         <div class="mb-0">
                                             <span class="badger me-2">
@@ -309,7 +309,7 @@
                                             Wallet balance
                                         </h5>
                                         <p class="mb-2 fw-bold">
-                                            $72,540
+                                        ₦<?= esc($walletBalance)?>
                                         </p>
                                         <div class="mb-0">
                                             <span class="badger me-2">

@@ -14,7 +14,6 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Description</th>
                             <th>Image</th>
                             <th>Category</th>
                             <th>Price</th>
@@ -22,9 +21,17 @@
                             <th>Delete</th>
                         </tr>
                     </thead>
-
                     <tbody>
-
+                     <?php foreach($products as $product): ?>
+                        <tr>
+                            <td><?= $product['name']?></td>
+                            <td><img src="<?= $product['image'] ?>" alt="<?= $product['name']?>" width="80"></td>
+                            <td><?= $product['category_name']?></td>
+                            <td><?= $product['price']?></td>
+                            <td><a href="<?= base_url('control/edit-product/'.$product['id'])?>" class="btn btn-warning">Edit</a></td>
+                            <td><a href="<?= base_url('control/delete-prod/'.$product['id'])?>" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                     <?php endforeach; ?>   
                     </tbody>
                 </table>
             </div>

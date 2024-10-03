@@ -13,6 +13,7 @@ class Product extends Migration
             'name'     => ['type' => 'VARCHAR', 'constraint' => 255],
             'category_id' => ['type' => 'INT','constraint' => 11,  'unsigned' => true],
             'price'    => ['type' => 'DECIMAL', 'constraint' => '10,2'],
+            'image' => ['type'=> 'VARCHAR', 'constraint'=> 255],
             'created_at' => ['type' => 'DATETIME'],
             'updated_at' => ['type' => 'DATETIME'],
         ]);

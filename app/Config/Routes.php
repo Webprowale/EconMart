@@ -7,10 +7,14 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/electronic', 'Home::electronic');
-
+$routes->get('login', 'Home::login');
+$routes->get('register', 'Home::register');
 
 $routes->group('control', function($routes) {
     $routes->get('', 'ControlController::index');
     $routes->get('create-product', 'ControlController::createProduct');
+    $routes->post('store-prod', 'ControlController::storeProduct');
     $routes->get('edit-product/(:num)', 'ControlController::editProduct/$1');
+    $routes->post('update-product/(:num)', 'ControlController::updateProduct/$1');
+    $routes->get('delete-prod/(:num)', 'ControlController::deleteProduct/$1');
 });

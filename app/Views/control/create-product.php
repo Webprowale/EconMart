@@ -8,41 +8,40 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Create Product</h6>
         </div>
-        <form method="post" action="<?= base_url('control/en') ?>" enctype="multipart/form-data" class='p-5'>
+        <?php if(isset($success)): ?>
+          <div class="alert alert-success" role="alert">
+             <small><?= $success?></small>
+            </div>
+        <?php endif; ?>
+        <form method="post" action="<?= base_url('control/store-prod') ?>" enctype="multipart/form-data" class='p-5'>
             <div class="row">
                 <div class="mb-3 rounded col-md-6">
                     <label for="title" style="background-color: transparent;">Title</label>
-                    <input type="text" name="title" class="form-control text-black" placeholder="Title..."
-                        value="<?= isset($postData['title']) ? esc($postData['title']) : '' ?>">
-                    <?php if (isset($errors['title'])): ?>
-                        <small class="text-danger"><?= esc($errors['title']) ?></small>
-                    <?php endif; ?>
-                </div>
-                <div class="mb-3 rounded col-md-6">
-                    <label for="description" style="background-color: transparent;">Description</label>
-                    <input type="text" name="description" class="form-control text-black" placeholder="Course Description..."
-                        value="<?= isset($postData['description']) ? esc($postData['description']) : '' ?>">
-                    <?php if (isset($errors['description'])): ?>
-                        <small class="text-danger"><?= esc($errors['description']) ?></small>
+                    <input type="text" name="name" class="form-control text-black" placeholder="Name...">
+                    <?php if (isset($errors['name'])): ?>
+                        <small class="text-danger"><?= esc($errors['name']) ?></small>
                     <?php endif; ?>
                 </div>
                 <div class="mb-3 rounded col-md-6">
                     <label for="price" style="background-color: transparent;">Price</label>
-                    <input type="number" name="price" class="form-control text-black" placeholder="Course price..."
-                        value="<?= isset($postData['price']) ? esc($postData['price']) : '' ?>">
+                    <input type="number" name="price" class="form-control text-black" placeholder="Product price...">
                     <?php if (isset($errors['price'])): ?>
                         <small class="text-danger"><?= esc($errors['price']) ?></small>
                     <?php endif; ?>
                 </div>
                 <div class="mb-3 rounded col-md-6">
                     <label for="category" style="background-color: transparent;">Category</label>
-                    <input type="text" name="category" class="form-control text-black" placeholder="Course Category..."
-                        value="<?= isset($postData['category']) ? esc($postData['category']) : '' ?>">
-                    <?php if (isset($errors['category'])): ?>
-                        <small class="text-danger"><?= esc($errors['category']) ?></small>
-                    <?php endif; ?>
+                   <select name="category_id"  class="form-control text-black">
+                    <option value="">Select Category</option>
+                    <?php foreach ($categories as $category):?>
+                        <option value="<?= $category['id'];?>"><?= $category['name'];?></option>
+                    <?php endforeach;?>
+                   </select>
+                    <?php if (isset($errors['category_id'])):?>
+                        <small class="text-danger"><?= esc($errors['category_id']) ?></small>
+                    <?php endif;?>
                 </div>
-                <div class="mb-3 rounded p-0 col-12">
+                <div class="mb-3 rounded p-0 col-md-6">
                     <label for="image" style="background-color: transparent;">Image</label>
                     <input type="file" name="image" class="form-control">
                     <?php if (isset($errors['image'])): ?>

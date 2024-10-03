@@ -4,15 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class CategoryModel extends Model
 {
-    protected $table            = 'user';
+    protected $table            = 'category';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'id',
+        'name',
+        'description',
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -35,7 +39,7 @@ class UserModel extends Model
 
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert   = ['ashing'];
+    protected $beforeInsert   = [];
     protected $afterInsert    = [];
     protected $beforeUpdate   = [];
     protected $afterUpdate    = [];
@@ -43,34 +47,9 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-    protected function hashing($data){
-        $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_BCRYPT);
-        return $data;
-    }
-    public function checkUser($email)
-    {
-       return $this->where('email', $email)->first();
 
-    }
-    public function addUser($data)
-    {
-        return $this->insert($data);
-    }
-    public function updateUser($id, $data)
-    {
-        return $this->update($id, $data);
-    }
-    public function deleteUser($id)
-    {
-        return $this->delete($id);
-    }
-    public function getUser($id)
-    {
-        return $this->find($id);
-    }
-    public function getAllUsers()
+    public function getAllCate()
     {
         return $this->findAll();
     }
-    
 }

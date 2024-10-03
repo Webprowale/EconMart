@@ -13,5 +13,13 @@ class Home extends BaseController
     {
         return view('electronic');
     }
+    public function login()
+    {
+        return view('auth/login');
+    }
+    public function register()
+    {
+        return view('auth/register');
+    }
     
 }
