@@ -31,22 +31,37 @@
         <h5 class="fs-3 fw-bold heading">Login</h5>
         <p class="fw-semibold mb-1">Expectional service and Expertise -the go-to real product</p>
       </div>
-      <form method="post">
-        <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
-          <input type="text" name="email"  class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">Email....</label>
+      <form method="post" action="<?=base_url('log') ?>">
+    <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
+      <input type="text" name="email" id="email" class="form-control text-black" placeholder="name@example.com" style="background-color: transparent;">
+      <label for="email" style="background-color: transparent;">Email....</label>
+      <?php if (isset($errors['email'])): ?>
+        <small class="text-danger"><?= esc($errors['email']) ?></small>
+      <?php endif; ?>
+      <?php if (isset($usererror)): ?>
+        <small class="text-danger"><?= esc($usererror) ?></small>
+      <?php endif; ?>
+    </div>
+    
+    <div class="form-floating mb-1 shadow rounded" style="background-color: transparent;">
+      <input type="password" name="password" id="password" class="form-control text-black" placeholder="Enter password..." style="background-color: transparent;">
+      <label for="password" style="background-color: transparent;">Password...</label>
+      <?php if (isset($errors['password'])): ?>
+        <small class="text-danger"><?= esc($errors['password']) ?></small>
+      <?php endif; ?>
+      <?php if (isset($passError)): ?>
+        <small class="text-danger"><?= esc($passError) ?></small>
+      <?php endif; ?>
+    </div>
 
-        </div>
-        <div class="form-floating mb-1 shadow rounded p-0" style="background-color: transparent;">
-          <input type="password" name="password" id="password" class="form-control text-black" id="floatingInput" placeholder="Enter password..." style="background-color: transparent;">
-          <label for="floatingInput" style="background-color: transparent;">Password...</label>
-        </div>
-        <div class="mb-4">
-          <input type="checkbox" id="togglePassword" class="toggle-password">
-          <label for="togglePassword">Show Password</label>
-        </div>
-        <input type="submit" value="Login" class=" btn-secondary btn border-0 text-white form-control b fs-5">
-      </form>
+    <div class="mb-4">
+      <input type="checkbox" id="togglePassword" class="toggle-password">
+      <label for="togglePassword">Show Password</label>
+    </div>
+    
+    <input type="submit" value="Login" class="btn-secondary btn border-0 text-white form-control b fs-5">
+</form>
+
       <div class="mt-2">
         <p>Don't have accout yet? 
         <a href="<?= base_url('/register') ?>" class='text-black fw-bold'>Register</a>

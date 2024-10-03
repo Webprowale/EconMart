@@ -15,22 +15,38 @@ class UserController extends BaseController
     public function login()
     {
         helper(['form', 'url']);
-        $data = [
-            'email' => $this->request->getPost('email'),
-            'password' =>  $this->request->getPost('password'),
-        ];
-        $user = $this->dbUser->checkUser($data['email']);
-        if (!$user) {
-            return view('login', ['usererror' => 'Invalid email']);
-        }
+        $validation = $this->validate([
+            'email' => 'required|valid_email',
+            'password' => 'required|min_length[8]',
+        ]);
+    
+        if ($validation) {
+            $data = [
+                'email' => $this->request->getPost('email'),
+                'password' => $this->request->getPost('password'),
+            ];
+    
+            $user = $this->dbUser->checkUser($data['email']);
+            if (!$user) {
+                return view('auth/login', ['usererror' => 'Invalid email']);
+            }
+    
             $pass = password_verify($data['password'], $user['password']);
             if ($pass) {
                 $session = session();
-                    $session->set('user_id', $user['id']);
-                    $session->set('user_email', $user['email']);
-                    $session->set('username', $user['name']);                
+                $session->set('user_id', $user['id']);
+                $session->set('user_email', $user['email']);
+                $session->set('username', $user['name']);
+    
+                return redirect()->to(base_url());
             }
+    
+            return view('auth/login', ['passError' => 'Invalid password']);
         }
+    
+        return view('auth/login', ['errors' => $this->validator->getErrors()]);
+    }
+    
     
     public function register()
     {
@@ -38,7 +54,7 @@ class UserController extends BaseController
         $this->validate([
             'name' => 'required|string',
             'address' => 'required|string',
-            'email' => 'required|valid_email',
+            'email' => 'required|valid_email|is_unique[user.email]',
             'password' =>  'required|min_length[8]',
         ]);
 
@@ -49,14 +65,12 @@ class UserController extends BaseController
                 'password' => $this->request->getPost('password'),
                 'address' => $this->request->getPost('address'),
             ];
-            if ($this->dbUser->checkUser($data['email'])) {
-                return view('register', ['emailerror' => 'Email already in use']);
-            }
-            $this->dbUser->register($data);
+            $this->dbUser->addUser($data);
             return redirect()->to(site_url('login'));
-        } else {
-            return view('register', ['errors' => $this->validator->getErrors()]);
-        }
+            
+        } 
+            return view('auth/register', ['errors' => $this->validator->getErrors()]);
+
     }
     public function logout()
     {

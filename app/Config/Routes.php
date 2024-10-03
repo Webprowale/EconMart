@@ -10,6 +10,10 @@ $routes->get('/electronic', 'Home::electronic');
 $routes->get('login', 'Home::login');
 $routes->get('register', 'Home::register');
 
+$routes->post('/reg', 'UserController::register');
+$routes->post('/log', 'UserController::login');
+
+
 $routes->group('control', function($routes) {
     $routes->get('', 'ControlController::index');
     $routes->get('create-product', 'ControlController::createProduct');

@@ -95,10 +95,17 @@
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span>Cart</span></a>
                            </li>
-                           <li><a href="">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-                              <span>Account</span></a>
+                           <li>
+                               <a href="<?= base_url('/login') ?>">
+                                  <i class="fa fa-user" aria-hidden="true"></i>
+                                  <?php if (session()->get('user_id')): ?>
+                                     <span><?= esc(session()->get('username')) ?></span>
+                                   <?php else: ?>
+                                      <span>Account</span>
+                                   <?php endif; ?>
+                                </a>
                            </li>
+
                         </ul>
                      </div>
                   </div>

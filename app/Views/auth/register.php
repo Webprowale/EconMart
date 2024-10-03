@@ -32,25 +32,34 @@
         <h5 class="fs-3 fw-bold heading">Register</h5>
         <p class="fw-semibold mb-1">Expectional service and Expertise -the go-to real product</p>
       </div>
-      <form method="post">
+      <form method="post" action="<?=base_url('reg') ?>">
       <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
           <input type="text" name="name"  class="form-control text-black" id="floatingInput" placeholder="name.." style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Name...</label>
-
+          <?php if (isset($errors['name'])): ?>
+                        <small class="text-danger"><?= esc($errors['name']) ?></small>
+                    <?php endif; ?>
         </div>
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
           <input type="text" name="address"  class="form-control text-black" id="floatingInput" placeholder="Enter Address" style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Address....</label>
-
+          <?php if (isset($errors['address'])): ?>
+                        <small class="text-danger"><?= esc($errors['address']) ?></small>
+                    <?php endif; ?>
         </div>
         <div class="form-floating mb-3 shadow rounded" style="background-color: transparent;">
           <input type="text" name="email"  class="form-control text-black" id="floatingInput" placeholder="name@example.com" style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Email....</label>
-
+          <?php if (isset($errors['email'])): ?>
+                        <small class="text-danger"><?= esc($errors['email']) ?></small>
+                    <?php endif; ?>
         </div>
         <div class="form-floating mb-1 shadow rounded p-0" style="background-color: transparent;">
           <input type="password" name="password" id="password" class="form-control text-black" id="floatingInput" placeholder="Enter password..." style="background-color: transparent;">
           <label for="floatingInput" style="background-color: transparent;">Password...</label>
+          <?php if (isset($errors['password'])): ?>
+                        <small class="text-danger"><?= esc($errors['password']) ?></small>
+                    <?php endif; ?>
         </div>
         <div class="mb-4">
           <input type="checkbox" id="togglePassword" class="toggle-password">
