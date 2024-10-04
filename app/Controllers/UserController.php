@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\UserModel;
+use App\Models\ProductModel;
 class UserController extends BaseController
 {
     public function __construct()
     {
         
         $this->dbUser = new UserModel();
+        $this->dbProduct = new ProductModel();
     }
     public function login()
     {
@@ -47,7 +49,6 @@ class UserController extends BaseController
         return view('auth/login', ['errors' => $this->validator->getErrors()]);
     }
     
-    
     public function register()
     {
         
@@ -78,5 +79,31 @@ class UserController extends BaseController
         $session->destroy();
         return redirect()->to(site_url('login'));
     }
+
+    public function addToCart($id)
+    {
+        $session = session();
+        $product = $this->dbProduct->find($id) ;
+
+        if ($product) {
+            $cart = $session->get('cart') ?? [];
+            if (isset($cart[$id])) {
+                $cart[$id]['quantity'] += 1;
+            } 
+                $cart[$id] = [
+                    'id' => $product['id'],
+                    'name' => $product['name'],
+                    'price' => $product['price'],
+                    'quantity' => 1
+                ];
+        
+            $session->set('cart', $cart);
+            $session->setFlashdata('success', 'Product added to cart successfully!');
+        } 
+            $session->setFlashdata('error', 'Product not found.');
+        
+        return redirect()->to('/');
+    }
+    
 }
 

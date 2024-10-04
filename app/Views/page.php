@@ -62,9 +62,9 @@
                      <button class="btn btn-secondary text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="<?= base_url('?category=fashion')?>">Fashion</a>
+                        <a class="dropdown-item" href="<?= base_url('?category=electronic')?>">Electronic</a>
+                        <a class="dropdown-item" href="<?= base_url('?category=jellewary')?>">Jellewery</a>
                      </div>
                   </div>
                   <div class="main">
@@ -91,16 +91,16 @@
                      </div>
                      <div class="login_menu">
                         <ul class="d-flex gap-5 ">
-                           <li><a href="#">
+                           <li><a  data-bs-toggle="modal" data-bs-target="#cartModal">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span>Cart</span></a>
                            </li>
                            <li>
-                               <a href="<?= base_url('/login') ?>">
                                   <i class="fa fa-user" aria-hidden="true"></i>
                                   <?php if (session()->get('user_id')): ?>
-                                     <span><?= esc(session()->get('username')) ?></span>
+                                     <span class="fs-6"><?= esc(session()->get('username')) ?></span>
                                    <?php else: ?>
+                                    <a href="<?= base_url('/login') ?>">
                                       <span>Account</span>
                                    <?php endif; ?>
                                 </a>
@@ -162,7 +162,7 @@
                                  <div class="tshirt_img"><img src="images/tshirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -173,7 +173,7 @@
                                  <div class="tshirt_img"><img src="images/dress-shirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -184,7 +184,7 @@
                                  <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -204,7 +204,7 @@
                                  <div class="tshirt_img"><img src="images/tshirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -215,7 +215,7 @@
                                  <div class="tshirt_img"><img src="images/dress-shirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -226,7 +226,7 @@
                                  <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -246,7 +246,7 @@
                                  <div class="tshirt_img"><img src="images/tshirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -257,7 +257,7 @@
                                  <div class="tshirt_img"><img src="images/dress-shirt-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -268,7 +268,7 @@
                                  <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -300,7 +300,7 @@
                                  <div class="electronic_img"><img src="images/laptop-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -311,7 +311,7 @@
                                  <div class="electronic_img"><img src="images/mobile-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -322,7 +322,7 @@
                                  <div class="electronic_img"><img src="images/computer-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -342,7 +342,7 @@
                                  <div class="electronic_img"><img src="images/laptop-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -353,7 +353,7 @@
                                  <div class="electronic_img"><img src="images/mobile-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -364,7 +364,7 @@
                                  <div class="electronic_img"><img src="images/computer-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -384,7 +384,7 @@
                                  <div class="electronic_img"><img src="images/laptop-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -395,7 +395,7 @@
                                  <div class="electronic_img"><img src="images/mobile-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -406,7 +406,7 @@
                                  <div class="electronic_img"><img src="images/computer-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -438,7 +438,7 @@
                                  <div class="jewellery_img"><img src="images/jhumka-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -449,7 +449,7 @@
                                  <div class="jewellery_img"><img src="images/neklesh-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -460,7 +460,7 @@
                                  <div class="jewellery_img"><img src="images/kangan-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -480,7 +480,7 @@
                                  <div class="jewellery_img"><img src="images/jhumka-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -491,7 +491,7 @@
                                  <div class="jewellery_img"><img src="images/neklesh-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -502,7 +502,7 @@
                                  <div class="jewellery_img"><img src="images/kangan-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -522,7 +522,7 @@
                                  <div class="jewellery_img"><img src="images/jhumka-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -533,7 +533,7 @@
                                  <div class="jewellery_img"><img src="images/neklesh-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -544,7 +544,7 @@
                                  <div class="jewellery_img"><img src="images/kangan-img.png"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="#">Add Cart</a></div>
                                  </div>
                               </div>
                            </div>
@@ -559,11 +559,55 @@
             <a class="carousel-control-next" href="#jewellery_main_slider" role="button" data-slide="next">
             <i class="fa fa-angle-right"></i>
             </a>
-            <div class="loader_main">
-               <div class="loader"></div>
-            </div>
          </div>
       </div>
+
+
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <?php if (isset($cart) && !empty($cart)): ?>
+          <div class="container-fluid">
+            <?php foreach ($cart as $item): ?>
+              <div class="row align-items-center py-2 border-bottom">
+                <div class="col-4">
+                  <strong><?= esc($item['name']) ?></strong>
+                </div>
+                <div class="col-2">
+                  <span>Quantity: <?= esc($item['quantity']) ?></span>
+                </div>
+                <div class="col-3">
+                  <span>Price: $<?= esc($item['price']) ?></span>
+                </div>
+                <div class="col-2">
+                  <span>Total: $<?= esc($item['price'] * $item['quantity']) ?></span>
+                </div>
+                <div class="col-1">
+                  <a href="/cart/remove/<?= $item['id'] ?>" class="btn btn-danger btn-sm">Remove</a>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+          <div class="mt-3 text-end">
+            <a href="/checkout" class="btn btn-success">Proceed to Checkout</a>
+          </div>
+        <?php else: ?>
+          <p>Your cart is empty.</p>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
       <div class="footer_section layout_padding">
          <div class="container">
             <div class="footer_logo"> <div class="col-sm-12">
@@ -594,6 +638,7 @@
       <script src="<?=base_url() ?>js/jquery.min.js"></script>
       <script src="<?=base_url() ?>js/popper.min.js"></script>
       <script src="<?=base_url() ?>js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
       <script src="<?=base_url() ?>js/jquery-3.0.0.min.js"></script>
       <script src="<?=base_url() ?>js/plugin.js"></script>
       <script src="<?=base_url() ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
