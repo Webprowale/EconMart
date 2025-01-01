@@ -219,7 +219,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a class="sidebar-link nav" href="<?=base_url('control/product') ?>">
+                    <a class="sidebar-link nav" href="<?=base_url('control') ?>">
                     <i class="lni lni-producthunt"></i>
                         <span>All Product</span>
                     </a>

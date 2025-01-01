@@ -48,6 +48,12 @@
                         <small class="text-danger"><?= esc($errors['image']) ?></small>
                     <?php endif; ?>
                 </div>
+                <div class="mb-3 rounded col-md-12">
+                    <label for="description" style="background-color: transparent;">Description</label>
+                    <textarea name="description" col='6' class="form-control text-black" placeholder="Product description..."></textarea>
+                    <?php if (isset($errors['description'])): ?>
+                        <small class="text-danger"><?= esc($errors['description']) ?></small>
+                    <?php endif; ?>
 
 
                 <input type="submit" name="register" value="Create" class="w-25 mt-3 btn btn-primary text-white form-control fs-5">

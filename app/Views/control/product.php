@@ -22,16 +22,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if(isset($products)): ?>
                      <?php foreach($products as $product): ?>
                         <tr>
                             <td><?= $product['name']?></td>
-                            <td><img src="<?= $product['image'] ?>" alt="<?= $product['name']?>" width="80"></td>
+                            <td><img src="<?= base_url($product['image']) ?>" alt="<?= $product['name']?>" width="80"></td>
                             <td><?= $product['category_name']?></td>
                             <td><?= $product['price']?></td>
                             <td><a href="<?= base_url('control/edit-product/'.$product['id'])?>" class="btn btn-warning">Edit</a></td>
                             <td><a href="<?= base_url('control/delete-prod/'.$product['id'])?>" class="btn btn-danger">Delete</a></td>
                         </tr>
-                     <?php endforeach; ?>   
+                     <?php endforeach; ?>
+                     <?php else: ?>   
+                        <tr>
+                            <td colspan="6" class="text-center">No Product</td>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

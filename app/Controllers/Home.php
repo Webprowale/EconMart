@@ -1,18 +1,20 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\CategoryModel;
+use App\Models\ProductModel;
 
 class Home extends BaseController
 {
+    
     public function index(): string
     {
-        return view('page');
+        $productModel = new ProductModel();  
+        $products = $productModel->findAll(); 
+        
+        return view('page', ['products' => $products]);  
     }
-
-    public function electronic()
-    {
-        return view('electronic');
-    }
+    
     public function login()
     {
         return view('auth/login');

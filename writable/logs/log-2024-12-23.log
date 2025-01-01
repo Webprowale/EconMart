@@ -1,0 +1,702 @@
+INFO - 2024-12-23 05:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 05:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 05:06:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 05:07:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:21:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:30:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:31:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:33:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-23 06:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-23 06:55:23 --> mysqli_sql_exception: Table 'mart.product' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:55:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.product' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:55:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.product' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:55:23 --> [Caused by] mysqli_sql_exception: Table 'mart.product' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `product`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:56:42 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:56:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:56:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:56:42 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:57:14 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:57:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:57:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:57:14 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:57:22 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:57:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:57:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:57:22 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:58:28 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:58:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:58:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:58:28 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:58:35 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:58:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:58:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:58:35 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:59:14 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:59:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:59:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:59:14 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+ERROR - 2024-12-23 06:59:17 --> mysqli_sql_exception: Table 'mart.category' doesn't exist in C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\EconMart\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\EconMart\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\EconMart\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\EconMart\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\EconMart\app\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\EconMart\app\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+#7 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\EconMart\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\EconMart\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\EconMart\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\EconMart\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\EconMart\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-23 06:59:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:59:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 4 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')
+CRITICAL - 2024-12-23 06:59:17 --> [Caused by] mysqli_sql_exception: Table 'mart.category' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = \'Jewellery\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, `category`.`name` AS `category_name`
+FROM `products`
+JOIN `category` ON `product`.`category_id` = `category`.`id`
+WHERE `category`.`name` = :category.name:', [...], false)
+ 5 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\ProductModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(13): App\Models\ProductModel->category('Jewellery')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\EconMart\\public\\index.php')

@@ -6,26 +6,27 @@ use CodeIgniter\Model;
 
 class ProductModel extends Model
 {
-    protected $table            = 'product';
+    protected $table            = 'products';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'id',
         'name',
         'image',
+        'description',
         'price',
         'category_id',
-        'created_at',
-        'updated_at',
+       
     ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -34,21 +35,25 @@ class ProductModel extends Model
     {
         return $this->insert($data);
     }
-    public function getAllProducts()
-    {
-        return $this->join('category', 'product.category_id = category.id')
-        ->select('product.*, category.name AS category_name')
-        ->get()
-        ->getResultArray();
-    }
-    public function getProductById($id)
-    {
-        return $this->join('category', 'product.category_id = category.id')
-        ->select('product.*, category.name AS category_name')
-        ->where('product.id', $id)
-        ->get()
-        ->getResultArray();
-    }
+   
+   public function get_products()
+   {
+       $this->select('products.*, categories.name as category_name');
+         $this->join('categories', 'categories.id = products.category_id');
+            return $this->findAll();
+   }
+   public function get_product_by_id($id)
+   {
+         $this->select('products.*, categories.name as category_name');
+            $this->join('categories', 'categories.id = products.category_id');
+                return $this->find($id);
+   }
+   public function get_product_by_category($category_id)
+   {
+            $this->select('products.*, categories.name as category_name');
+                $this->join('categories', 'categories.id = products.category_id');
+                    return $this->where('category_id', $category_id)->findAll();
+   }
     public function countProduct()
     {
         return $this->countAllResults();

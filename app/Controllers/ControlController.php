@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class ControlController extends BaseController
@@ -17,17 +18,18 @@ class ControlController extends BaseController
   {
       $this->dbProduct = new ProductModel();
       $this->dbCate = new CategoryModel();
+      $this->dbUser = new UserModel();
       $this->walletCount = 0;
       $this->productCount = $this->dbProduct->countProduct();
       \Config\Services::renderer()->setData([
           'productCount' => $this->productCount,
           'walletBalance' => $this->walletCount,
-          'userCount'   => 0
+          'userCount'   => $this->dbUser->countUser(),
       ], 'global');
   }
     public function index()
     {
-      $product = $this->dbProduct->getAllProducts();
+      $product = $this->dbProduct->get_products();
       return view('control/product', ['products'=> $product]);
       
     }
@@ -44,6 +46,7 @@ class ControlController extends BaseController
         'name'=> 'required|string',
         'image'=> 'uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png]|max_size[image,2048]',
         'price'=> 'required|numeric',
+        'description'=> 'required|string',
         'category_id'=> 'required|numeric'
       ]);
       if($validation) {
@@ -51,6 +54,7 @@ class ControlController extends BaseController
         $imgPath = null;
         if($image && $image->isValid()){
           $imgName = $image->getRandomName();
+
           $image->move(ROOTPATH.'public/uploads', $imgName);
           $imgPath = 'uploads/'.$imgName;
         }
@@ -58,6 +62,7 @@ class ControlController extends BaseController
           'name'=> $this->request->getPost('name'),
           'image'=> $imgPath,
           'price'=> $this->request->getPost('price'),
+          'description'=> $this->request->getPost('description'),
           'category_id'=> $this->request->getPost('category_id')
         ];
         $this->dbProduct->createProduct($productData);
@@ -69,14 +74,15 @@ class ControlController extends BaseController
 }
 public function editProduct($id)
 {
-    $product = $this->dbProduct->getProductById($id);
-    $categories = $this->dbCate->getAllCate();
-    return view('control/edit-product', ['product' => $product[0], 'categories' => $categories]);
+    $product = $this->dbProduct->get_product_by_id($id);
+    
+   
+    return view('control/edit-product', ['product' => $product, 'categories' => $this->dbCate->getAllCate()]);
 }
 
 public function updateProduct($id)
 {
-$product = $this->dbProduct->getProductById($id);
+$product = $this->dbProduct->get_product_by_id($id);
 $categories = $this->dbCate->getAllCate();
 
   $validation = $this->validate([

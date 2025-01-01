@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class CategoryModel extends Model
 {
-    protected $table            = 'category';
+    protected $table            = 'categories';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -15,7 +15,7 @@ class CategoryModel extends Model
     protected $allowedFields    = [
         'id',
         'name',
-        'description',
+        'created_at'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -51,5 +51,8 @@ class CategoryModel extends Model
     public function getAllCate()
     {
         return $this->findAll();
+    }
+    public function products() {
+        return $this->hasMany(ProductModel::class, 'category_id', 'id');
     }
 }

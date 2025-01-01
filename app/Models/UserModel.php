@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table            = 'user';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -14,12 +14,12 @@ class UserModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'id',
-        'name',
+        'username',
         'address',
         'email',
         'password',
-        'created_at',
-        'updated_at',
+        'created_at'
+       
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -59,6 +59,10 @@ class UserModel extends Model
     {
        return $this->where('email', $email)->first();
 
+    }
+    public function countUser()
+    {
+        return $this->countAllResults();
     }
     public function addUser($data)
     {

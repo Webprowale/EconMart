@@ -12,7 +12,9 @@ $routes->get('register', 'Home::register');
 
 $routes->post('/reg', 'UserController::register');
 $routes->post('/log', 'UserController::login');
-
+$routes->post('cart/(:num)', 'UserController::addToCart/$1');
+$routes->get('payment/call', 'UserController::callback');
+$routes->post('payment/(:num)', 'UserController::process_payment/$1');
 
 $routes->group('control', function($routes) {
     $routes->get('', 'ControlController::index');
